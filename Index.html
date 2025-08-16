@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vinay Atyam - Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .loader {
+            border: 4px solid #f3f3f3;
+            border-radius: 50%;
+            border-top: 4px solid #6366f1;
+            width: 40px;
+            height: 40px;
+            -webkit-animation: spin 2s linear infinite; /* Safari */
+            animation: spin 2s linear infinite;
+        }
+
+        /* Safari */
+        @-webkit-keyframes spin {
+          0% { -webkit-transform: rotate(0deg); }
+          100% { -webkit-transform: rotate(360deg); }
+        }
+
+        @keyframes spin {
+          0% { transform: rotate(0deg); }
+          100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Header -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-gray-800">Vinay Atyam</a>
+            <div class="hidden md:flex space-x-6">
+                <a href="#about" class="text-gray-600 hover:text-indigo-600 transition duration-300">About</a>
+                <a href="#skills" class="text-gray-600 hover:text-indigo-600 transition duration-300">Skills</a>
+                <a href="#experience" class="text-gray-600 hover:text-indigo-600 transition duration-300">Experience</a>
+                <a href="#projects" class="text-gray-600 hover:text-indigo-600 transition duration-300">Projects</a>
+                <a href="#education" class="text-gray-600 hover:text-indigo-600 transition duration-300">Education</a>
+                <a href="#contact" class="text-gray-600 hover:text-indigo-600 transition duration-300">Contact</a>
+            </div>
+            <button id="mobile-menu-button" class="md:hidden flex items-center">
+                 <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </nav>
+        <div id="mobile-menu" class="hidden md:hidden">
+            <a href="#about" class="block py-2 px-4 text-sm hover:bg-gray-200">About</a>
+            <a href="#skills" class="block py-2 px-4 text-sm hover:bg-gray-200">Skills</a>
+            <a href="#experience" class="block py-2 px-4 text-sm hover:bg-gray-200">Experience</a>
+            <a href="#projects" class="block py-2 px-4 text-sm hover:bg-gray-200">Projects</a>
+            <a href="#education" class="block py-2 px-4 text-sm hover:bg-gray-200">Education</a>
+            <a href="#contact" class="block py-2 px-4 text-sm hover:bg-gray-200">Contact</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <main>
+        <section class="bg-indigo-600 text-white py-20 md:py-32">
+            <div class="container mx-auto px-6 text-center">
+                <h1 class="text-4xl md:text-6xl font-bold leading-tight mb-4">Vinay Atyam</h1>
+                <p class="text-lg md:text-2xl text-indigo-200 mb-8">AI, Data Science & Full-Stack Development Enthusiast</p>
+                <div class="flex justify-center space-x-6">
+                    <a href="mailto:nageswarnaga809@gmail.com" class="text-white hover:text-indigo-100 transition duration-300"><i class="fas fa-envelope text-2xl"></i></a>
+                    <a href="https://linkedin.com/in/vinayatyam55" target="_blank" class="text-white hover:text-indigo-100 transition duration-300"><i class="fab fa-linkedin text-2xl"></i></a>
+                    <a href="https://github.com/Atyam-Vinay" target="_blank" class="text-white hover:text-indigo-100 transition duration-300"><i class="fab fa-github text-2xl"></i></a>
+                    <a href="https://leetcode.com/u/21pa1a5704/" target="_blank" class="text-white hover:text-indigo-100 transition duration-300"><i class="fas fa-code text-2xl"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="py-20">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center mb-12">About Me</h2>
+                <div class="max-w-3xl mx-auto bg-white p-8 rounded-lg shadow-md">
+                    <p id="resume-summary" class="text-lg text-gray-700 leading-relaxed">
+                        A highly motivated and skilled Computer Science graduate with a strong academic foundation and hands-on experience in AI, data science, and full-stack development. Proficient in building and deploying robust applications using Python, cloud platforms like AWS, and DevOps tools. Proven ability to apply machine learning models to solve real-world problems. Seeking a challenging role to leverage technical expertise and contribute to innovative projects.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="bg-gray-100 py-20">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center mb-12">Technical Skills</h2>
+                <div id="skills-list" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Programming Languages -->
+                    <div class="bg-white p-6 rounded-lg shadow-md skill-card transition duration-300">
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-code text-indigo-600 text-2xl mr-4"></i>
+                            <h3 class="text-xl font-semibold">Programming Languages</h3>
+                        </div>
+                        <ul class="list-disc list-inside text-gray-700">
+                            <li>Python</li>
+                            <li>SQL</li>
+                            <li>Java</li>
+                        </ul>
+                    </div>
+                    <!-- Cloud & DevOps -->
+                    <div class="bg-white p-6 rounded-lg shadow-md skill-card transition duration-300">
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-cloud text-indigo-600 text-2xl mr-4"></i>
+                            <h3 class="text-xl font-semibold">Cloud & DevOps</h3>
+                        </div>
+                        <ul class="list-disc list-inside text-gray-700">
+                            <li>AWS (EC2, RDS, VPC, SG)</li>
+                            <li>Terraform</li>
+                            <li>Docker</li>
+                            <li>Kubernetes</li>
+                        </ul>
+                    </div>
+                    <!-- Web Frameworks -->
+                    <div class="bg-white p-6 rounded-lg shadow-md skill-card transition duration-300">
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-server text-indigo-600 text-2xl mr-4"></i>
+                            <h3 class="text-xl font-semibold">Web Frameworks</h3>
+                        </div>
+                         <ul class="list-disc list-inside text-gray-700">
+                            <li>Flask</li>
+                            <li>FastAPI</li>
+                        </ul>
+                    </div>
+                     <!-- Data & ML -->
+                    <div class="bg-white p-6 rounded-lg shadow-md skill-card transition duration-300">
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-brain text-indigo-600 text-2xl mr-4"></i>
+                            <h3 class="text-xl font-semibold">Data & ML</h3>
+                        </div>
+                        <ul class="list-disc list-inside text-gray-700">
+                            <li>Pandas, NumPy</li>
+                            <li>OpenCV</li>
+                            <li>Scikit-Learn</li>
+                            <li>Power BI</li>
+                        </ul>
+                    </div>
+                     <!-- Tools & Platforms -->
+                    <div class="bg-white p-6 rounded-lg shadow-md skill-card transition duration-300">
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-tools text-indigo-600 text-2xl mr-4"></i>
+                            <h3 class="text-xl font-semibold">Tools & Platforms</h3>
+                        </div>
+                        <ul class="list-disc list-inside text-gray-700">
+                            <li>Figma</li>
+                            <li>Object-Oriented Programming</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AI-Powered Resume Tailor Section -->
+        <section id="ai-tailor" class="py-20">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center mb-4">✨ AI-Powered Resume Tailor</h2>
+                <p class="text-lg text-gray-600 text-center mb-8 max-w-2xl mx-auto">
+                    Paste a job description below, and let AI highlight how my skills align with your needs.
+                </p>
+                <div class="max-w-3xl mx-auto bg-white p-8 rounded-lg shadow-md">
+                    <textarea id="job-description" class="w-full h-40 p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition" placeholder="Paste the job description here..."></textarea>
+                    <button id="generate-summary-btn" class="mt-4 w-full bg-indigo-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-indigo-700 transition duration-300 flex items-center justify-center">
+                        Generate Tailored Summary
+                    </button>
+                    <div id="loader" class="hidden mx-auto mt-6">
+                        <div class="loader"></div>
+                    </div>
+                    <div id="summary-result" class="mt-6 p-4 bg-indigo-50 border border-indigo-200 rounded-lg text-gray-800 hidden"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="bg-gray-100 py-20">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center mb-12">Experience</h2>
+                <div class="max-w-3xl mx-auto">
+                    <div class="bg-white p-8 rounded-lg shadow-md mb-8">
+                        <h3 class="text-2xl font-semibold mb-2">Google Career Launchpad Program</h3>
+                        <p class="text-gray-600 mb-4">Data Analyst | Jun - Sep 2024</p>
+                        <ul class="list-disc list-inside text-gray-700 space-y-2">
+                            <li>Analyzed extensive public datasets on Google Cloud using BigQuery, Looker, and Dataproc to derive meaningful insights.</li>
+                            <li>Developed impactful visualizations and trained custom ML models, enhancing data analysis and interpretation for diverse public data.</li>
+                        </ul>
+                    </div>
+                    <div class="bg-white p-8 rounded-lg shadow-md">
+                        <h3 class="text-2xl font-semibold mb-2">Ernst & Young</h3>
+                        <p class="text-gray-600 mb-4">Data Analyst Intern (Remote) | Feb - Apr 2024</p>
+                        <ul class="list-disc list-inside text-gray-700 space-y-2">
+                            <li>Performed comprehensive analysis on Indian agricultural production data using Power BI and DAX.</li>
+                            <li>Designed and implemented interactive dashboards to track key performance indicators (KPIs), improving data accessibility and interpretability for strategic insights.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="py-20">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center mb-12">Projects</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Project 1 -->
+                    <a href="https://github.com/Atyam-Vinay" target="_blank" class="block bg-white rounded-lg shadow-md overflow-hidden project-card transition duration-300">
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold mb-2">Facial Recognition Attendance System</h3>
+                            <p class="text-gray-700 mb-4">A full-stack Android application that automates attendance tracking using facial recognition.</p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="bg-indigo-100 text-indigo-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded">Python</span>
+                                <span class="bg-indigo-100 text-indigo-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded">Flask</span>
+                                <span class="bg-indigo-100 text-indigo-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded">FastAPI</span>
+                                <span class="bg-indigo-100 text-indigo-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded">AWS</span>
+                                <span class="bg-indigo-100 text-indigo-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded">Terraform</span>
+                            </div>
+                        </div>
+                    </a>
+                    <!-- Project 2 -->
+                    <a href="https://github.com/Atyam-Vinay" target="_blank" class="block bg-white rounded-lg shadow-md overflow-hidden project-card transition duration-300">
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold mb-2">Twitter Sentiment Analysis</h3>
+                            <p class="text-gray-700 mb-4">Conducted sentiment analysis on a large, labeled Twitter dataset to classify sentiments in real-time.</p>
+                             <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="bg-indigo-100 text-indigo-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded">Python</span>
+                                <span class="bg-indigo-100 text-indigo-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded">NLP</span>
+                                <span class="bg-indigo-100 text-indigo-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded">Scikit-Learn</span>
+                            </div>
+                        </div>
+                    </a>
+                    <!-- Project 3 -->
+                    <a href="https://github.com/Atyam-Vinay" target="_blank" class="block bg-white rounded-lg shadow-md overflow-hidden project-card transition duration-300">
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold mb-2">NASSCOM Incubator Challenge</h3>
+                            <p class="text-gray-700 mb-4">Developed a Flask-based backend for an AI-powered bodybuilding assistant website.</p>
+                             <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="bg-indigo-100 text-indigo-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded">Flask</span>
+                                <span class="bg-indigo-100 text-indigo-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded">AI</span>
+                                <span class="bg-indigo-100 text-indigo-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded">Python</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Education Section -->
+        <section id="education" class="bg-gray-100 py-20">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center mb-12">Education</h2>
+                <div class="max-w-3xl mx-auto bg-white p-8 rounded-lg shadow-md">
+                    <h3 class="text-2xl font-semibold mb-2">Vishnu Institute of Technology</h3>
+                    <p class="text-gray-600 mb-1">BTech in Computer Science and Business Systems | 2021-2025</p>
+                    <p class="text-gray-600 mb-4">Minors: AI and Data Science | CGPA: 9.1/10</p>
+                    <hr class="my-6">
+                    <h3 class="text-2xl font-semibold mb-2">Sri Chaitanya Junior College</h3>
+                    <p class="text-gray-600 mb-4">Intermediate | 98.2%</p>
+                     <hr class="my-6">
+                    <h3 class="text-2xl font-semibold mb-2">Bhashyam EM Public School</h3>
+                    <p class="text-gray-600">Secondary | CGPA: 10/10</p>
+                </div>
+            </div>
+        </section>
+
+         <!-- Certifications Section -->
+        <section id="certifications" class="py-20">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center mb-12">Certifications</h2>
+                <div class="max-w-3xl mx-auto text-center">
+                    <div class="bg-white p-6 rounded-lg shadow-md inline-block">
+                        <ul class="list-disc list-inside text-left text-gray-700 space-y-3">
+                            <li>Google Cybersecurity Professional Certificate</li>
+                            <li>CS50: Introduction to Cybersecurity - Harvard University</li>
+                            <li>AI-900 Azure AI Fundamentals - Microsoft</li>
+                        </ul>
+                        <a href="https://github.com/Atyam-Vinay/all-certificates" target="_blank" class="mt-6 inline-block bg-indigo-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-indigo-700 transition duration-300">
+                            View All Certificates
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="bg-gray-100 py-20">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl font-bold mb-4">Get In Touch</h2>
+                <p class="text-lg text-gray-700 mb-8">I'm currently looking for new opportunities. Feel free to reach out!</p>
+                <a href="mailto:nageswarnaga809@gmail.com" class="bg-indigo-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-indigo-700 transition duration-300 text-lg">Contact Me</a>
+                 <p class="text-gray-600 mt-8">Phone: +91 7794909714</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-6">
+        <div class="container mx-auto px-6 text-center">
+            <p>&copy; 2024 Vinay Atyam. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when a link is clicked
+        const mobileMenuLinks = mobileMenu.getElementsByTagName('a');
+        for (let i = 0; i < mobileMenuLinks.length; i++) {
+            mobileMenuLinks[i].addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        }
+        
+        // Gemini API Feature
+        const generateBtn = document.getElementById('generate-summary-btn');
+        const jobDescriptionInput = document.getElementById('job-description');
+        const summaryResultDiv = document.getElementById('summary-result');
+        const loader = document.getElementById('loader');
+        
+        const resumeSummary = document.getElementById('resume-summary').innerText;
+        const skillsList = document.getElementById('skills-list').innerText;
+
+        generateBtn.addEventListener('click', async () => {
+            const jobDescription = jobDescriptionInput.value;
+            if (!jobDescription.trim()) {
+                summaryResultDiv.innerText = "Please paste a job description first.";
+                summaryResultDiv.classList.remove('hidden');
+                return;
+            }
+
+            loader.classList.remove('hidden');
+            summaryResultDiv.classList.add('hidden');
+            generateBtn.disabled = true;
+
+            const prompt = `
+                Based on the following resume summary and skills, and the provided job description, write a concise paragraph (3-4 sentences) highlighting why this candidate is a strong fit for the role. Address the recruiter directly.
+
+                **Candidate's Summary:**
+                ${resumeSummary}
+
+                **Candidate's Skills:**
+                ${skillsList}
+
+                **Job Description:**
+                ${jobDescription}
+            `;
+
+            try {
+                let chatHistory = [];
+                chatHistory.push({ role: "user", parts: [{ text: prompt }] });
+                const payload = { contents: chatHistory };
+                const apiKey = ""; // API key will be provided by the environment
+                const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
+                
+                // Function to make API call with exponential backoff
+                const fetchWithBackoff = async (retries = 3, delay = 1000) => {
+                    for (let i = 0; i < retries; i++) {
+                        try {
+                            const response = await fetch(apiUrl, {
+                                method: 'POST',
+                                headers: { 'Content-Type': 'application/json' },
+                                body: JSON.stringify(payload)
+                            });
+                            if (response.ok) {
+                                return response.json();
+                            }
+                        } catch (error) {
+                            // Network or other fetch errors
+                        }
+                        await new Promise(res => setTimeout(res, delay * Math.pow(2, i)));
+                    }
+                    throw new Error('API request failed after multiple retries.');
+                };
+
+                const result = await fetchWithBackoff();
+                
+                if (result.candidates && result.candidates.length > 0 &&
+                    result.candidates[0].content && result.candidates[0].content.parts &&
+                    result.candidates[0].content.parts.length > 0) {
+                    const text = result.candidates[0].content.parts[0].text;
+                    summaryResultDiv.innerText = text;
+                } else {
+                   summaryResultDiv.innerText = "Sorry, I couldn't generate a summary. The response from the AI was unexpected.";
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                summaryResultDiv.innerText = "An error occurred while generating the summary. Please try again later.";
+            } finally {
+                loader.classList.add('hidden');
+                summaryResultDiv.classList.remove('hidden');
+                generateBtn.disabled = false;
+            }
+        });
+    </script>
+
+</body>
+
+</html>
